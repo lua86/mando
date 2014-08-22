@@ -9,12 +9,6 @@ import gnu.io.SerialPort;
 import gnu.io.SerialPortEvent;
 import gnu.io.SerialPortEventListener;
 import java.util.Enumeration;
-import javax.swing.*;
-import javax.swing.event.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.JFrame;
-import java.awt.Color;
 
 public class SerialTest implements SerialPortEventListener {
 	SerialPort serialPort;

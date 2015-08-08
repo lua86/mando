@@ -43,53 +43,78 @@ void setup() {
 void loop() {
   // Read the pushbutton input pin:
   buttonStateSelect = digitalRead(buttonPinSelect);
+  buttonStateStart = digitalRead(buttonPinStart);
+  buttonStateDown = digitalRead(buttonPinDown);
+  buttonStateUP = digitalRead(buttonPinUP);
+  buttonStateLeft = digitalRead(buttonPinLeft);
+  buttonStateRight = digitalRead(buttonPinRight);
+  buttonStateL = digitalRead(buttonPinL);
+  buttonStateR = digitalRead(buttonPinR);
  
-    if (buttonStateSelect == HIGH and lastButtonStateSelect == LOW) {
+   if (buttonStateSelect == HIGH and lastButtonStateSelect == LOW) {
       // If the current state is HIGH then the button
-      // Send to serial that the engine has started:   
+      // Send to serial that the button is pressed:   
       Serial.println("Select");
+  } else if (buttonStateSelect == LOW and lastButtonStateSelect == HIGH) {
+      //If the current state is LOW and last state
+      //State was HIGH then send to serial it is
+      //not pressed anymore:
+      Serial.println("unSelect");
   }
   
-      if (buttonStateStart == HIGH and lastButtonStateStart == LOW) {
-      // If the current state is HIGH then the button
-      // Send to serial that the engine has started:   
+   if (buttonStateStart == HIGH and lastButtonStateStart == LOW) {
       Serial.println("Start");
+  } else if (buttonStateStart == LOW and lastButtonStateStart == HIGH) {
+      Serial.println("unStart");
   }
-     if (buttonStateDown == HIGH and lastButtonStateDown == LOW) {
-      // If the current state is HIGH then the button
-      // Send to serial that the engine has started:   
+
+   if (buttonStateDown == HIGH and lastButtonStateDown == LOW) {
       Serial.println("Down");
+  } else if (buttonStateDown == LOW and lastButtonStateDown == HIGH) {
+      Serial.println("unDown");
   }
-     if (buttonStateUP == HIGH and lastButtonStateUP == LOW) {
-      // If the current state is HIGH then the button
-      // Send to serial that the engine has started:   
+
+   if (buttonStateUP == HIGH and lastButtonStateUP == LOW) {
       Serial.println("UP");
+  } else if (buttonStateUP == LOW and lastButtonStateUP == HIGH) {
+      Serial.println("unUP");
   }
-     if (buttonStateLeft == HIGH and lastButtonStateLeft == LOW) {
-      // If the current state is HIGH then the button
-      // Send to serial that the engine has started:   
+
+   if (buttonStateLeft == HIGH and lastButtonStateLeft == LOW) {
       Serial.println("Left");
+  } else if (buttonStateLeft == LOW and lastButtonStateLeft == HIGH) {
+      Serial.println("unLeft");
   }
-     if (buttonStateRight == HIGH and lastButtonStateRight == LOW) {
-      // If the current state is HIGH then the button
-      // Send to serial that the engine has started:   
+
+   if (buttonStateRight == HIGH and lastButtonStateRight == LOW) {
       Serial.println("Right");
+  } else if (buttonStateRight == LOW and lastButtonStateRight == HIGH) {
+      Serial.println("unRight");
   }
-     if (buttonStateL == HIGH and lastButtonStateL == LOW) {
-      // If the current state is HIGH then the button
-      // Send to serial that the engine has started:   
+
+   if (buttonStateL == HIGH and lastButtonStateL == LOW) {
       Serial.println("L");
+  } else if (buttonStateL == LOW and lastButtonStateL == HIGH) {
+      Serial.println("unL");
   }
-     if (buttonStateR == HIGH and lastButtonStateR == LOW) {
-      // If the current state is HIGH then the button
-      // Send to serial that the engine has started:   
+
+   if (buttonStateR == HIGH and lastButtonStateR == LOW) {
       Serial.println("R");
+  } else if (buttonStateR == LOW and lastButtonStateR == HIGH) {
+      Serial.println("unR");
   }
  
   
   // Save the current state as the last state,
   // for next time through the loop
+  lastButtonStateSelect = buttonStateSelect;
+  lastButtonStateStart = buttonStateStart;
+  lastButtonStateDown = buttonStateDown;
   lastButtonStateUP = buttonStateUP;
+  lastButtonStateLeft = buttonStateLeft;
+  lastButtonStateRight = buttonStateRight;
+  lastButtonStateL = buttonStateL;
+  lastButtonStateR = buttonStateR;
 delay('1');
 Serial.flush();
 }

@@ -8,7 +8,7 @@ const int buttonPinRight = 7;
 const int buttonPinL = 8;
 const int buttonPinR = 9;
 const int buttonPinA = 10;
-const int puttonPinB = 11;
+const int buttonPinB = 11;
 
 // Variables:
 int buttonStateSelect = 0;
